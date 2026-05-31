@@ -1,0 +1,6 @@
+@forgeboard.api_HostAddress = http://localhost:5148
+
+GET {{forgeboard.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
