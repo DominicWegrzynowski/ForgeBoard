@@ -21,11 +21,11 @@ namespace forgeboard.api.Models
 
         [Required]
         [DisplayName("Title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
         [Required]
         [DisplayName("Message")]
-        public string Message { get; set; }
+        public string Message { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]
         [DisplayName("Date")]
@@ -33,9 +33,9 @@ namespace forgeboard.api.Models
 
         [DisplayName("Has been viewed")]
         public bool Viewed { get; set; }
-        
+
         //Navigation Properties
-        public virtual Ticket Ticket { get; set; }
+        public virtual Ticket Ticket { get; set; } = null!;
         public virtual User Recipient { get; set; } = null!;
         public virtual User Sender { get; set; } = null!; 
 

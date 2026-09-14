@@ -1,6 +1,6 @@
 ﻿namespace forgeboard.api.Models.Enums
 {
-    public enum UserRole
+    public enum Roles
     {
         Admin,
         ProjectManager,

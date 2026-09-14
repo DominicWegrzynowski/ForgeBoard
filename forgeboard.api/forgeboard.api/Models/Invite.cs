@@ -32,21 +32,21 @@ namespace forgeboard.api.Models
         public DateTimeOffset JoinDate { get; set; }
 
         [DisplayName("Invitee Email")]
-        public string InviteeEmail { get; set; }
+        public string InviteeEmail { get; set; } = string.Empty;
 
         [DisplayName("Invitee First Name")]
-        public string InviteeFirstName { get; set; }
+        public string InviteeFirstName { get; set; } = string.Empty;
 
         [DisplayName("Invitee Last Name")]
-        public string InviteeLastName { get; set; }
+        public string InviteeLastName { get; set; } = string.Empty;
         public bool IsValid { get; set; }
 
         //Navigation Properties
 
-        public virtual Company Company { get; set; }
+        public virtual Company Company { get; set; } = null!;
         public virtual User Invitor { get; set; } = null!;
         public virtual User Invitee { get; set; } = null!;
-        public virtual Project Project { get; set; }
+        public virtual Project Project { get; set; } = null!;
 
     }
 }

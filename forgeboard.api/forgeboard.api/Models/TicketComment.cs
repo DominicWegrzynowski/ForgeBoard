@@ -14,13 +14,13 @@ namespace forgeboard.api.Models
         public int TicketId { get; set; }
 
         [DisplayName("Member Comment")]
-        public string Comment { get; set; }
+        public string Comment { get; set; } = string.Empty;
 
         [DisplayName("Date")]
         public DateTimeOffset Created { get; set; }
-        
+
         //-Navigational Properties
-        public virtual Ticket Ticket { get; set; }
+        public virtual Ticket Ticket { get; set; } = null!;
         public virtual User User { get; set; } = null!;
     }
 }

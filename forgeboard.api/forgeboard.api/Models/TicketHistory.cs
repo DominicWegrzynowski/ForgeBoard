@@ -14,22 +14,22 @@ namespace forgeboard.api.Models
         public int UserId { get; set; }
 
         [DisplayName("Updated Item")]
-        public string Property { get; set; } //property of the ticket that was updated
+        public string Property { get; set; } = string.Empty; //property of the ticket that was updated 
 
         [DisplayName("Previous")]
-        public string OldValue { get; set; }
+        public string OldValue { get; set; } = string.Empty;
 
         [DisplayName("Current")]
-        public string NewValue { get; set; }
+        public string NewValue { get; set; } = string.Empty;
 
         [DisplayName("Date Modified")]
         public DateTimeOffset Created { get; set; }
 
         [DisplayName("Description of Change")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         //Navigation Properties
-        public virtual Ticket Ticket { get; set; }
+        public virtual Ticket Ticket { get; set; } = null!;
         public virtual User User { get; set; } = null!;
 
     }

@@ -8,10 +8,10 @@ namespace forgeboard.api.Models
         public int Id { get; set; }
 
         [DisplayName("Company Name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [DisplayName("Company Description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         //-- Navigation Properties
         public virtual ICollection<User> Members { get; set; } = new HashSet<User>();

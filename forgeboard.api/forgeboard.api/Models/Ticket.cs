@@ -33,11 +33,11 @@ namespace forgeboard.api.Models
         [Required]
         [StringLength(50)]
         [DisplayName("Title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
         [Required]
         [DisplayName("Description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]
         [Display(Name = "Created")]
@@ -55,10 +55,10 @@ namespace forgeboard.api.Models
 
         //Navigation Properties
         //the virtual keyword allows for lazy loading and change tracking in entity framework
-        public virtual Project Project { get; set; }
-        public virtual TicketType TicketType { get; set; }
-        public virtual TicketPriority TicketPriority { get; set; }
-        public virtual TicketStatus TicketStatus { get; set; }
+        public virtual Project Project { get; set; } = null!;
+        public virtual TicketType TicketType { get; set; } = null!;
+        public virtual TicketPriority TicketPriority { get; set; } = null!;
+        public virtual TicketStatus TicketStatus { get; set; } = null!;
         public virtual User OwnerUser { get; set; } = null!;
         public virtual User? DeveloperUser { get; set; }
 

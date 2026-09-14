@@ -30,8 +30,6 @@ namespace forgeboard.api.Data
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(u => u.Role).HasConversion<string>();
-
                 entity.HasOne(u => u.Company)
                     .WithMany(c => c.Members)
                     .HasForeignKey(u => u.CompanyId)

@@ -13,7 +13,7 @@ namespace forgeboard.api.Models
         public int Id { get; set; }
 
         [DisplayName("Company")]
-        public int/*?*/  CompanyId { get; set; }
+        public int  CompanyId { get; set; }
 
         [DisplayName("Priority")]
         public int ProjectPriorityId { get; set; }
@@ -21,10 +21,10 @@ namespace forgeboard.api.Models
         [Required]
         [StringLength(50)]
         [DisplayName("Project Name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [DisplayName("Project Description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]
         [DisplayName("Start Date")]
@@ -36,21 +36,21 @@ namespace forgeboard.api.Models
 
         [NotMapped]
         [DataType(DataType.Upload)]
-        public IFormFile ImageFormFile { get; set; }
+        public IFormFile? ImageFormFile { get; set; }
 
         [DisplayName("File Name")]
-        public string ImageFileName { get; set; }
-        public byte[] ImageFileData { get; set; }
+        public string? ImageFileName { get; set; }
+        public byte[]? ImageFileData { get; set; }
 
         [DisplayName("File Extension")]
-        public string ImageFileContentType { get; set; }
+        public string? ImageFileContentType { get; set; }
 
         [DisplayName("Archived")]
         public bool Archived { get; set; }
 
         //Navigation Properties
-        public virtual Company Company { get; set; }
-        public virtual ProjectPriority ProjectPriority { get; set; }
+        public virtual Company Company { get; set; } = null!;
+        public virtual ProjectPriority ProjectPriority { get; set; } = null!;
         public virtual ICollection<User> Members { get; set; } = new HashSet<User>();
         public virtual ICollection<Ticket> Tickets { get; set; } = new HashSet<Ticket>();
 

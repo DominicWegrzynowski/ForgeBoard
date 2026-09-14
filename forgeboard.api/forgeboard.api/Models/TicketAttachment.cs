@@ -20,7 +20,7 @@ namespace forgeboard.api.Models
         public DateTimeOffset Created { get; set; }
 
         [DisplayName("File Description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         [NotMapped]
         [DisplayName("Select a file")]
@@ -28,11 +28,11 @@ namespace forgeboard.api.Models
         public IFormFile? FormFile { get; set; }
 
         [DisplayName("File")]
-        public string FileName { get; set; }
-        public byte[] FileData { get; set; }
+        public string? FileName { get; set; }
+        public byte[]? FileData { get; set; }
 
         [DisplayName("File Extension")]
-        public string FileContentType { get; set; }
+        public string? FileContentType { get; set; }
 
         //Navigation Properties
         public virtual Ticket Ticket { get; set; } = null!;

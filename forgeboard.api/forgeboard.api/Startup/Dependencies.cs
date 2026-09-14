@@ -1,4 +1,6 @@
-﻿using forgeboard.api.Data;
+﻿using forgeboard.api.Services.CompanyInfoService;
+using forgeboard.api.Services.ProjectService;
+using forgeboard.api.Services.TicketService;
 
 namespace forgeboard.api.Startup
 {
@@ -9,7 +11,9 @@ namespace forgeboard.api.Startup
             builder.Services.AddOpenApiServices();
             builder.Services.AddDatabaseServices(builder.Configuration);
             builder.Services.AddControllers();
-            // Add other dependencies here, such as repositories, services, etc.
+            builder.Services.AddScoped<ITicketService, TicketService>();
+            builder.Services.AddScoped<IProjectService, ProjectService>();
+            builder.Services.AddScoped<ICompanyInfoService, CompanyInfoService>();
         }
     }
 }
