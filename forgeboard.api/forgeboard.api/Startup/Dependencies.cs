@@ -8,6 +8,7 @@ namespace forgeboard.api.Startup
         {
             builder.Services.AddOpenApiServices();
             builder.Services.AddDatabaseServices(builder.Configuration);
+            builder.Services.AddControllers();
             // Add other dependencies here, such as repositories, services, etc.
         }
     }

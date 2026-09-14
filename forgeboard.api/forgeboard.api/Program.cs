@@ -13,7 +13,6 @@ app.UseHttpsRedirection();
 
 //app.UseAuthentication();
 //app.UseAuthorization();
-app.MapTicketPriorityEndpoints();
-//Add Other endpoints
+app.MapControllers();
 
 app.Run();
