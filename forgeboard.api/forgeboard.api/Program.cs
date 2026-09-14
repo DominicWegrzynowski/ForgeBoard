@@ -1,4 +1,3 @@
-using forgeboard.api.Endpoints;
 using forgeboard.api.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
