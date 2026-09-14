@@ -10,6 +10,7 @@ namespace forgeboard.api.Startup
         {
             builder.Services.AddOpenApiServices();
             builder.Services.AddDatabaseServices(builder.Configuration);
+            builder.Services.AddCorsServices(builder.Configuration);
             builder.Services.AddControllers();
             builder.Services.AddScoped<ITicketService, TicketService>();
             builder.Services.AddScoped<IProjectService, ProjectService>();

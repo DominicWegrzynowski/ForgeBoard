@@ -28,7 +28,38 @@ namespace forgeboard.api.Controllers
             {
                 return NotFound();
             }
-            return Ok(ticket);
+
+            var dto = new TicketResponseDto
+            {
+                Id = ticket.Id,
+
+                ProjectId = ticket.ProjectId,
+                TicketPriorityId = ticket.TicketPriorityId,
+                TicketStatusId = ticket.TicketStatusId,
+                TicketTypeId = ticket.TicketTypeId,
+
+                OwnerUserId = ticket.OwnerUserId,
+                DeveloperUserId = ticket.DeveloperUserId,
+
+                Title = ticket.Title,
+                Description = ticket.Description,
+
+                Created = ticket.Created,
+                Updated = ticket.Updated,
+
+                Archived = ticket.Archived,
+                ArchivedByProject = ticket.ArchivedByProject,
+
+                ProjectName = ticket.Project.Name,
+                PriorityName = ticket.TicketPriority.Name,
+                StatusName = ticket.TicketStatus.Name,
+                TypeName = ticket.TicketType.Name,
+
+                OwnerName = ticket.OwnerUser.FullName,
+                DeveloperName = ticket.DeveloperUser?.FullName
+            };
+
+            return Ok(dto);
         }
 
         // GET api/tickets/company/5

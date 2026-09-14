@@ -9,7 +9,7 @@ var app = builder.Build();
 app.UseOpenApi();
 
 app.UseHttpsRedirection();
-
+app.UseCorsPolicy();
 //app.UseAuthentication();
 //app.UseAuthorization();
 app.MapControllers();

@@ -2,9 +2,26 @@ import { Link } from "react-router-dom";
 import { Card } from "../components/ui/Card";
 import { Badge } from "../components/ui/Badge";
 import { Button } from "../components/ui/Button";
-import { tickets } from "../data/mockData";
+// import { tickets } from "../data/mockData";
+import { useTickets } from "../services/tickets/ticketQueries";
 
 export function TicketsPage() {
+  const companyId = 2; // Replace with the actual company ID
+
+  const { 
+    data: tickets,
+    isLoading, 
+    isError 
+  } = useTickets(companyId); 
+  
+  if (isLoading) {
+    return <div>Loading tickets...</div>;
+  }
+
+  if (isError || !tickets) {
+    return <div>Unable to load tickets.</div>;
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -31,9 +48,9 @@ export function TicketsPage() {
               {tickets.map((ticket) => (
                 <tr key={ticket.id} className="border-t border-slate-100">
                   <td className="px-2 py-3 font-medium">{ticket.id} - {ticket.title}</td>
-                  <td className="px-2 py-3">{ticket.developer}</td>
-                  <td className="px-2 py-3"><Badge tone={ticket.status === "Resolved" ? "green" : "blue"}>{ticket.status}</Badge></td>
-                  <td className="px-2 py-3"><Badge tone={ticket.priority === "Urgent" ? "red" : ticket.priority === "High" ? "amber" : "default"}>{ticket.priority}</Badge></td>
+                  <td className="px-2 py-3">{ticket.developerName ?? "Unassigned"}</td>
+                  <td className="px-2 py-3"><Badge tone={ticket.statusName === "Resolved" ? "green" : "blue"}>{ticket.statusName}</Badge></td>
+                  <td className="px-2 py-3"><Badge tone={ticket.priorityName === "Urgent" ? "red" : ticket.priorityName === "High" ? "amber" : "default"}>{ticket.priorityName}</Badge></td>
                   <td className="px-2 py-3 flex gap-3">
                     <Link className="text-brand-600 hover:underline" to={`/tickets/${ticket.id}`}>View</Link>
                     <Link className="text-brand-600 hover:underline" to="/tickets/edit">Edit</Link>
